@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-form {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      flex: 1;
+      text-align: right;
+      margin-right: 10px;
+    }
+
+    .form-group input {
+      flex: 2;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 12px 20px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .cancel-link {
+      text-decoration: none;
+      color: #f44336;
+      margin-top: 10px;
+      display: inline-block;
+    }
+
+    .forgot-link {
+      text-decoration: none;
+      color: #666;
+      display: block;
+      margin-top: 8px;
+    }
+
+    .signup-link {
+      text-decoration: none;
+      color: #333;
+      margin-top: 16px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="login-form">
+    <h2>Login Form</h2>
+
+    <form action="serlogin1" method="post">
+      <div class="form-group">
+        <label for="email">Username:</label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="psw">Password:</label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+      </div>
+
+      <button type="submit">Login</button>
+      
+      
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

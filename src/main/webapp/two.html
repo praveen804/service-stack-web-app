@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="section-heading">Services</h2>
+    <div class="card-container">
+      <div class="card">
+        <div class="icon-wrapper">
+          <i class="fas fa-shower"></i>
+        </div>
+        <h3>Total Servicing</h3>
+        <p>Cost: $5</p>
+      </div>
+      <div class="card">
+        <div class="icon-wrapper">
+          <i class="fas fa-gears"></i>
+        </div>
+        <h3>Tyres and Wheels</h3>
+        <p>Cost: $15</p>
+      </div>
+      <div class="card">
+        <div class="icon-wrapper">
+          <i class="fas fa-car-battery"></i>
+        </div>
+        <h3>Battery Replacement</h3>
+        <p>Cost: $15</p>
+      </div>
+      <div class="card">
+        <div class="icon-wrapper">
+          <i class="fas fa-screwdriver-wrench"></i>
+        </div>
+        <h3>Major Repairs</h3>
+        <p>Cost: $25</p>
+      </div>
+    </div>
+    <div class="form-container">
+      <form action="orderServlet" method="post">
+        <h2>Book a Service</h2>
+        <div class="form-group">
+          <label for="services">choose any number of the Services needed</label>
+          <select multiple="multiple" name="services" id="services">
+            <option value="Servicing">Servicing</option>
+            <option value="Tyres and Wheels">Tyres and Wheels</option>
+            <option value="Battery Replacement">Battery Replacement</option>
+            <option value="Major Repairs">Major Repairs</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <label class="input-label" for="phone_number">Phone Number</label>
+            <input type="tel" name="phone_number" id="phone_number" placeholder="Enter your phone number"/>
+          </div>
+        </div>
+        <div class="form-group">
+          
+          <div class="location-group">
+            <label class="input-label" for="locationField">Location</label>
+            <input type="text" name="locationField" id="locationField" placeholder="Share Location" readonly>
+            <button type="button" id="locationButton">Get Location</button>
+          </div>
+        </div>
+        <div class="form-group">
+	        <label for="totalCost">Total Cost</label>
+	        <input type="text" name="totalCost" id="totalCost" disabled />
+	        <input type="hidden" name="totalCostHidden" id="totalCostHidden" />
+	    </div>
+	    <div class="form-group">
+          <div class="input-group">
+            <label class="input-label" for="psw">Email</label>
+            <input type="text" name="psw" id="psw" placeholder="email"/>
+          </div>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+//Get references to the select element and total cost span
+  // Get references to the select element and total cost fields
+const servicesSelect = document.getElementById("services");
+const totalCostField = document.getElementById("totalCost");
+const totalCostHiddenField = document.getElementById("totalCostHidden");
+
+// Define the cost of each service
+const serviceCosts = {
+    Servicing: 5,
+    "Tyres and Wheels": 15,
+    "Battery Replacement": 15,
+    "Major Repairs": 25,
+};
+
+// Add an event listener to the select element
+servicesSelect.addEventListener("change", updateTotalCost);
+
+// Function to update the total cost fields
+function updateTotalCost() {
+    let selectedServices = servicesSelect.selectedOptions;
+    let totalCost = 0;
+
+    for (let option of selectedServices) {
+        totalCost += serviceCosts[option.value];
+    }
+
+    // Update the visible total cost field
+    totalCostField.value = `$${totalCost}`;
+
+    // Update the hidden total cost field for submission
+    totalCostHiddenField.value = totalCost;
+}
+
+// Initial update when the page loads
+updateTotalCost();
+
+
+    const locationButton = document.getElementById("locationButton");
+    const locationField = document.getElementById("locationField");
+
+    locationButton.addEventListener("click", () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            locationField.value = `Lat: ${latitude}, Long: ${longitude}`;
+          },
+          (error) => {
+            locationField.value = "Error fetching location.";
+            console.error(error.message);
+          }
+        );
+      } else {
+        locationField.value = "Geolocation is not supported by this browser.";
+      }
+    });
+  </script>
+</body>
+</html>

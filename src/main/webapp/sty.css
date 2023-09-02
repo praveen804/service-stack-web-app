@@ -1,0 +1,115 @@
+/* Reset some default styling */
+* {
+   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.section-heading {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  flex: 0 0 30%;
+}
+
+.icon-wrapper {
+  font-size: 40px;
+  color: #04AA6D;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #04AA6D;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #777;
+  margin: 0;
+}
+
+.form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 60%;
+  text-align: center;
+}
+
+.form-container input,
+.form-container select {
+  width: 60%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.form-container button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #038859;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.location-group {
+  display: flex;
+  align-items: center;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-label {
+  flex: 0 0 25%;
+  font-weight: 500;
+  color: #555;
+  padding-right: 10px;
+}
+
+
+/* Add more styles as needed */
